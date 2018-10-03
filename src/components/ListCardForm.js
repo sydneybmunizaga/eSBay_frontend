@@ -16,6 +16,7 @@ class ListingCardForm extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="card">
         <img
@@ -23,7 +24,7 @@ class ListingCardForm extends Component {
           src={this.props.listing.image}
           alt={this.props.listing.name}
         />
-        <form onSubmit={this.onSave}>
+        <form onSubmit={this.onSave} onClick={this.props.cancel}>
           <div className="form-group">
             <input
               className="form-control"
