@@ -1,10 +1,31 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Component } from "react";
+import ListCardForm from "./ListCardForm";
 import "../App.css";
 
 class ListingCard extends Component {
+  constructor() {
+    super();
+    this.state = {
+      editing: false,
+      selectedListing: null
+    };
+  }
+
+  edit = e => {
+    console.log(`got to edit`);
+    this.setState({
+      editing: true,
+      selectedListing: e.target.parentNode.id
+    });
+    this.render();
+  };
+
   render() {
-    return (
+    console.log(this.props);
+    return this.props.listing.id === this.state.selectedListing ? (
+      <ListCardForm />
+    ) : (
       <div className="card">
         <img
           className="card-img-top"
@@ -34,17 +55,9 @@ class ListingCard extends Component {
             <small className="text-muted">
               <button
                 type="button"
+                id={this.props.listing.id}
                 className="btn btn-info"
-                onClick={() =>
-                  this.props.handleUpdate(
-                    this.props.listing.id,
-                    this.props.listing.name,
-                    this.props.listing.description,
-                    this.props.listing.price,
-                    this.props.listing.startDate,
-                    this.props.listing.endDate
-                  )
-                }
+                onClick={e => this.edit(e)}
               >
                 <span className="glyphicon glyphicon-bin">Edit</span>
               </button>

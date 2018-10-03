@@ -5,14 +5,19 @@ import "../App.css";
 
 class ListingContainer extends Component {
   render() {
+    console.log(this.props);
     return (
-      <div className="card-container">
+      <div
+        className="card-container"
+        style={[{ overflow: "scroll" }, { "max-height": "400px" }]}
+      >
         <div className="card-columns">
           {this.props.listings.map(listing => (
             <ListingCard
               listing={listing}
               handleDelete={this.props.handleDelete}
-              handleUpdate={this.props.handleUpdate}
+              renderForm={this.props.renderForm}
+              cancel={this.props.cancel}
             />
           ))}
         </div>

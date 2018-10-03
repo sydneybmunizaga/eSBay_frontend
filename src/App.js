@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import ListingContainer from "./components/ListingContainer";
 import NavBar from "./components/NavBar";
 import Profile from "./components/Profile";
+import Login from "./components/Login";
 import "./App.css";
 
 class App extends Component {
@@ -92,7 +93,12 @@ class App extends Component {
       });
   };
 
+  cancel = () => {
+    this.setState({ editing: false });
+  };
+
   handleUpdate = (id, name, descrip, price, startDate, endDate) => {
+    console.log(`update works`);
     fetch(`http://localhost:3001/listings/${id}`, {
       method: "PATCH",
       headers: {
@@ -115,13 +121,14 @@ class App extends Component {
     return (
       <div>
         <NavBar />
+        <Login users={this.state.user} />
         {this.state.listings.length === 0 ? (
           <h4>Nothing to sell</h4>
         ) : (
           <ListingContainer
             listings={this.state.listings}
             handleDelete={this.handleDelete}
-            handleUpdate={this.handleUpdate}
+            cancel={this.cancel}
           />
         )}
         <Profile
