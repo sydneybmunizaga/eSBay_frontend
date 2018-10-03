@@ -13,7 +13,6 @@ class ListingCard extends Component {
   }
 
   edit = e => {
-    console.log(`got to edit`);
     this.setState({
       editing: true,
       selectedListing: e.target.parentNode.id
@@ -21,16 +20,18 @@ class ListingCard extends Component {
   };
 
   cancel = e => {
-    console.log(`got to cancel`);
     this.setState({
       editing: false
     });
   };
 
   render() {
-    console.log(this.props);
     return this.state.editing ? (
-      <ListCardForm listing={this.props.listing} cancel={this.cancel} />
+      <ListCardForm
+        listing={this.props.listing}
+        cancel={this.cancel}
+        handleUpdate={this.props.handleUpdate}
+      />
     ) : (
       <div className="card">
         <img

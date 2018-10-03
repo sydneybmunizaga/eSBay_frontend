@@ -5,7 +5,6 @@ import "../App.css";
 
 class ListingContainer extends Component {
   render() {
-    console.log(this.props);
     return (
       <div
         className="card-container"
@@ -18,6 +17,7 @@ class ListingContainer extends Component {
               handleDelete={this.props.handleDelete}
               renderForm={this.props.renderForm}
               cancel={this.props.cancel}
+              handleUpdate={this.props.handleUpdate}
             />
           ))}
         </div>

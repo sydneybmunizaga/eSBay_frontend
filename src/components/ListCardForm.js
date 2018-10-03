@@ -16,7 +16,6 @@ class ListingCardForm extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="card">
         <img
@@ -24,7 +23,10 @@ class ListingCardForm extends Component {
           src={this.props.listing.image}
           alt={this.props.listing.name}
         />
-        <form onSubmit={this.onSave} onClick={this.props.cancel}>
+        <form
+          id={this.props.listing.id}
+          onSubmit={e => this.props.handleUpdate(e)}
+        >
           <div className="form-group">
             <input
               className="form-control"
@@ -79,16 +81,18 @@ class ListingCardForm extends Component {
               onChange={e => this.setState({ endDate: e.target.value })}
             />
           </div>
-          <button
-            className="btn btn-secondary"
-            type="button"
-            onClick={this.props.cancel}
-          >
-            Cancel
-          </button>
-          <button className="btn btn-secondary" type="submit">
-            Save
-          </button>
+          <div className="card-footer">
+            <button
+              className="btn btn-secondary"
+              type="button"
+              onClick={this.props.cancel}
+            >
+              Cancel
+            </button>
+            <button className="btn btn-secondary" type="submit">
+              Save
+            </button>
+          </div>
         </form>
       </div>
     );

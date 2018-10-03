@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Component } from "react";
 import ListingContainer from "./components/ListingContainer";
+import ListingCard from "./components/ListingCard";
 import NavBar from "./components/NavBar";
 import Profile from "./components/Profile";
 import Login from "./components/Login";
@@ -97,13 +98,19 @@ class App extends Component {
     this.setState({ editing: false });
   };
 
-  handleUpdate = (id, name, descrip, price, startDate, endDate) => {
-    console.log(`update works`);
+  handleUpdate = e => {
+    let id = e.target.id;
+    let name = e.target[0].value;
+    let descrip = e.target[1].value;
+    let image = e.target[2].value;
+    let price = e.target[3].value;
+    let startDate = e.target[4].value;
+    let endDate = e.target[5].value;
     fetch(`http://localhost:3001/listings/${id}`, {
       method: "PATCH",
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        Accept: "application/json"
       },
       body: JSON.stringify({
         name: name,
@@ -114,7 +121,7 @@ class App extends Component {
       })
     })
       .then(r => r.json())
-      .then(data => console.log(data));
+      .then(data => this.getListings());
   };
 
   render() {
@@ -129,6 +136,7 @@ class App extends Component {
             listings={this.state.listings}
             handleDelete={this.handleDelete}
             cancel={this.cancel}
+            handleUpdate={this.handleUpdate}
           />
         )}
         <Profile
