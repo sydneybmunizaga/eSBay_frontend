@@ -37,7 +37,14 @@ class ListingCardForm extends Component {
             />
           </div>
           <div className="form-group">
-            <input
+            <textarea
+              rows="3"
+              style={
+                ({ "z-index": "auto" },
+                { position: "relative" },
+                { "line-height": 24 },
+                { "font-size": 16 })
+              }
               className="form-control"
               name="description"
               value={this.state.description}
