@@ -1,3 +1,5 @@
+# README
+
 eSBay is a project that I built in one week using React.js for the front-end.
 
 eSBay is a mock version of the more widely known eBay - the bartering platform for second hand items.
