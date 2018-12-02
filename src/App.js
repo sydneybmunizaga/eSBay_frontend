@@ -1,7 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Component } from "react";
 import ListingContainer from "./components/ListingContainer";
-import ListingCard from "./components/ListingCard";
 import NavBar from "./components/NavBar";
 import Profile from "./components/Profile";
 import Login from "./components/Login";
@@ -12,12 +11,13 @@ class App extends Component {
     super();
     this.state = {
       listings: [],
-      user: []
+      user: [],
+      status: null
     };
   }
 
   getListings = () => {
-    fetch(`http://localhost:3001/listings`)
+    fetch(`http://localhost:3000/listings`)
       .then(r => r.json())
       .then(listingData =>
         this.setState({
@@ -31,7 +31,7 @@ class App extends Component {
   }
 
   getUsers = () => {
-    fetch(`http://localhost:3001/users`)
+    fetch(`http://localhost:3000/users`)
       .then(r => r.json())
       .then(userData =>
         this.setState({
@@ -68,7 +68,7 @@ class App extends Component {
       status: "listing",
       user: 1
     };
-    fetch(`http://localhost:3001/listings`, {
+    fetch(`http://localhost:3000/listings`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -85,7 +85,7 @@ class App extends Component {
   };
 
   handleDelete = id => {
-    fetch(`http://localhost:3001/listings/${id}`, {
+    fetch(`http://localhost:3000/listings/${id}`, {
       method: "DELETE"
     })
       .then(r => r.json())
@@ -106,7 +106,7 @@ class App extends Component {
     let price = e.target[3].value;
     let startDate = e.target[4].value;
     let endDate = e.target[5].value;
-    fetch(`http://localhost:3001/listings/${id}`, {
+    fetch(`http://localhost:3000/listings/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
