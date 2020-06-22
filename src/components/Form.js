@@ -5,7 +5,7 @@ import "../App.css";
 class Form extends Component {
   render() {
     return (
-      <div className="form" style={{ width: "250px" }}>
+      <div className="form" class="col-6 col-md-4">
         <h4>Add a listing!</h4>
         <form id="form" onSubmit={evt => this.props.handleAddListing(evt)}>
           <div className="form-group" id="name">

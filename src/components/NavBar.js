@@ -7,7 +7,7 @@ class NavBar extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand" href="#home">
-          eSBay
+          Food App
         </a>
         <div id="collapse navbar-collapse">
           <ul className="navbar-nav mr-auto">
