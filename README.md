@@ -10,7 +10,7 @@ When you see the listing, there is a button that says 'Buy'. When you press that
 
 You can also update the information about the listing as well. If you want to change the cost or description of the item - you can with the 'Update' button.
 
-**\***IMPORTANT:
+## To run
 
 ```
 npm install
