@@ -16,6 +16,10 @@ You can also update the information about the listing as well. If you want to ch
 npm install
 ```
 
+```
+npm start
+```
+
 When you open the front end you have to start with http://localhost:3001/login **\***
 It is very important that you add '/login' to the url. If you just go straight to http://localhost:3001 or http://localhost:3001 you will not see anything. You must add '/login' to either one.
 
