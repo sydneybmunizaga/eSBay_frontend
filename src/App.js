@@ -129,7 +129,7 @@ class App extends Component {
       <div>
         <NavBar />
         {this.state.listings.length === 0 ? (
-          <h4 class="col-6 col-md-4">Nothing to sell</h4>
+          <h4 class="col-6 col-md-4">THERE IS NOTHING HERE</h4>
         ) : (
           <ListingContainer
             listings={this.state.listings}

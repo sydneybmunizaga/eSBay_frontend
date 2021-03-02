@@ -38,7 +38,7 @@ class Login extends Component {
               type="text"
               class="form-control"
               id="username"
-              placeholder="Enter username"
+              placeholder="Enter your username PLEASE"
             />
           </div>
           <div class="form-group">

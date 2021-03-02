@@ -42,7 +42,7 @@ class ListingCard extends Component {
         <div className="card-body">
           <h5 className="card-title">{this.props.listing.name}</h5>
           <p className="card-text">{this.props.listing.description}</p>
-          <p className="card-text">Asking price: ${this.props.listing.price}</p>
+          <p className="card-text">ASKING PRICE: ${this.props.listing.price}</p>
           <p className="card-text">
             Date of Posting: {this.props.listing.startDate}
           </p>

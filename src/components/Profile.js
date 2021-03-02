@@ -10,6 +10,7 @@ class Profile extends Component {
       <div>
         <ProfileBar userInfo={this.props.user} />
         <Form handleAddListing={this.props.handleAddListing} />
+        <Form handleAddListing={this.props.handleAddListing} />
       </div>
     );
   }
